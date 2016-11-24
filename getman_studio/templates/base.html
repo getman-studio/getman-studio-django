@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Художня майстерня Гетьман!</title>
+
+    {% load static %}
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="{% static 'css/style.css' %} " type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <nav class="white darken-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="black-text brand-logo">Art Studio «Getman»</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="black-text" href="/">галерея</a></li>
+                <li><a class="black-text" href="/workshop/">майстерня</a></li>
+                <li><a class="black-text" href="/contacts/">контакти</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a class="black-text" href="/">галерея</a></li>
+                <li><a class="black-text" href="/workshop/">майстерня</a></li>
+                <li><a class="black-text" href="/contacts/">контакти</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-black">menu</i></a>
+        </div>
+    </nav>
+
+    {% block 'content' %}
+    {% endblock %}
+
+    <footer class="page-footer white">
+        <div class="container">
+            <div class="row center">
+                <a class="social" href="https://www.facebook.com/getmanstudio">
+                    <img src="{% static 'img/facebook_fg.png' %}" alt="facebook" />
+                </a>
+                <a class="social" href="https://ru.pinterest.com/artstudioGetman/">
+                    <img src="{% static 'img/pinterest_fg.png' %}" alt="pinterest" />
+                </a>
+                <a class="social" href="https://www.behance.net/getmanstudio">
+                    <img src="{% static 'img/behands_fg.png' %}" alt="behands" />
+                </a>
+                <a class="social" href="https://plus.google.com/u/0/108824955873820134877/">
+                    <img src="{% static 'img/gplus_fg.png' %}" alt="google plus" />
+                </a>
+                <a class="social" href="https://instagram.com/getmanstudio/">
+                    <img src="{% static 'img/instagram_fg.png' %}" alt="instagram" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container black-text">
+                © Художня майстерня "Гетьман" 2008–2016 Копіювання матеріалів дозволяється лише з посиланням на джерело
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="{% static 'js/init.js' %}"></script>
+</body>
+
+</html>

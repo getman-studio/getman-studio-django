@@ -1,0 +1,128 @@
+body {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+a {
+  color: #0000FF;
+}
+
+/* unvisited link */
+
+a:visited {
+  color: #0000FF;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+i.icon-black {
+  color: black;
+}
+
+.tabs .indicator {
+  background-color: black !important;
+}
+
+.tabs a {
+  color: black !important;
+}
+
+.social {
+  margin: 5px;
+}
+
+.social img {
+  width: 44px;
+  height: 44px;
+}
+
+.parallax-container {
+  height: 100px;
+}
+
+#workshop_image_container {
+  height: 220px;
+  position: relative;
+}
+.workshop_image {
+  width: 908px;
+  height: 220px;
+  position: absolute;
+}
+.workshop_image.hidden {
+  display: none;
+}
+.workshop_image.visible {}
+#workshop_description p {
+  text-align: justify;
+}
+
+#workshop_description .header {
+  height: 70px;
+}
+
+#workshop_description .header span,
+#workshop_description .header .splat {
+  position: relative;
+}
+
+#workshop_description .header span {
+  top: 50px;
+  font-weight: bold;
+}
+
+#workshop_description .header .splat {
+  top: 0;
+  float: right;
+}
+
+#workshop_description .header .splat span {
+  left: 30px;
+  top: 24px;
+  font-size: 14pt;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.line img {
+  width: 500px;
+}
+
+.splat {
+  display: inline;
+  position: relative;
+}
+
+.splat img {
+  height: 80px;
+}
+
+.splat img,
+.splat span {
+  position: absolute;
+}
+
+.title .title_name {
+  font-weight: bold;
+}
+
+.title .title_date {
+  float: right;
+}
+
+.content_item .author {
+  position: relative;
+}
+
+.content_item img {
+  width: 100%;
+}
