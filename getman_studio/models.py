@@ -12,11 +12,11 @@ class Category(models.Model):
 class GalleryItem(models.Model):
     image = models.ImageField(upload_to="gallery/")
     description = models.CharField(max_length=255)
-    link = models.CharField(max_length=255)
+    link = models.CharField(max_length=255, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __unicode__(self):
-        return self.category.name + self.description
+        return self.category.name + ": " + self.description
 
 class Article(models.Model):
     id = models.AutoField(primary_key=True)

@@ -9,7 +9,8 @@ def gallery(request):
         try:
             items[category] = GalleryItem.objects.get(category = category)
         except:
-            items[category] = None
+            items[category] = []
+        print str(category) + str(items)
     return render(request, 'gallery/gallery.html', {'categories': categories, 'items': items})
 
 def workshop(request):
