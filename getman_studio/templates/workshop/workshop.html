@@ -38,7 +38,7 @@
 							<span class="title_name">{{ article.name }}</span>
 							<span class="title_date">{{ article.date }}</span>
 						</div>
-						<p class="value">{{ article.description }}</p>
+						<p class="value">{{ article.description|safe }}</p>
 						<img src="{{MEDIA_URL}}{{ article.image1.url }}" />
 						{% if article.imagel2 %}
 							<img src="{{MEDIA_URL}}{{ article.image2.url }}" />
