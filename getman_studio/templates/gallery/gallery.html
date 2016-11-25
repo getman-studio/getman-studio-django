@@ -23,12 +23,9 @@
 		<div class="row">
 			<div class="col s12 l12">
 				<ul class="tabs z-depth-1">
-					<li class="tab col s2 l2"><a class="active" href="#sculpture">Скульптура</a></li>
-					<li class="tab col s2 l2"><a href="#wpaint">Розпис</a></li>
-					<li class="tab col s2 l2"><a href="#painting">Живопис</a></li>
-					<li class="tab col s2 l2"><a href="#molding">Декорації</a></li>
-					<li class="tab col s2 l2"><a href="#graphics">Графіка</a></li>
-					<li class="tab col s2 l2"><a href="#drawing">Арт</a></li>
+					{% for category in categories %}
+						<li class="tab col s2 l2"><a href="#{{ category.text_id }}">{{ category.name }}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 
