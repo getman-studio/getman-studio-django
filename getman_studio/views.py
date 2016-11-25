@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Category, GalleryItem
+from models import Category, GalleryItem, Article
 
 def gallery(request):
     items = {}
@@ -14,7 +14,8 @@ def gallery(request):
     return render(request, 'gallery/gallery.html', {'categories': categories, 'items': items})
 
 def workshop(request):
-    return render(request, 'workshop/workshop.html')
+    articles = Article.objects.all()
+    return render(request, 'workshop/workshop.html', { 'articles': articles })
 
 def contacts(request):
     return render(request, 'contacts/contacts.html')
