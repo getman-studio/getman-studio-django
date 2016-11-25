@@ -4,7 +4,7 @@
 {% block 'content' %}
 	<main>
 		<div class="parallax-container">
-			<div class="parallax"><img src="{% static 'img/workshop/0.png' %}"></div>
+			<div class="parallax"><img src="{{MEDIA_URL}}{{firstParallax.image.url}}"></div>
 		</div>
 		<div class="section">
 			<div class="container row">
@@ -30,33 +30,37 @@
 			</div>
 		</div>
 
-		{% for article in articles %}
+		{% for article, parallax in particles.items %}
 			<div class="section">
 				<div class="row container">
 					<div id="springTrees" class="content_item">
 						<div class="title">
 							<span class="title_name">{{ article.name }}</span>
-							<span class="title_date">{{ article.date }}</span>
+							<span class="title_date">{{ article.date|date:"d.m.Y" }}</span>
 						</div>
 						<p class="value">{{ article.description|safe }}</p>
 						<img src="{{MEDIA_URL}}{{ article.image1.url }}" />
-						{% if article.imagel2 %}
+						{% if article.image2 %}
 							<img src="{{MEDIA_URL}}{{ article.image2.url }}" />
 						{% endif %}
 						<p class="right author">{{ article.author }}</p>
 					</div>
 				</div>
-
 				<div class="row right-align">
 					<div class="col s12 line">
 						<img src="{% static 'img/line.png' %}" />
 					</div>
 				</div>
 			</div>
+			{% if parallax %}
+				<div class="parallax-container">
+					<div class="parallax"><img src="{{MEDIA_URL}}{{parallax.image.url}}"></div>
+				</div>
+			{% endif %}
 		{% endfor %}
 
 		<div class="parallax-container">
-			<div class="parallax"><img src="{% static 'img/workshop/5.png' %}"></div>
+			<div class="parallax"><img src="{{MEDIA_URL}}{{lastParallax.image.url}}"></div>
 		</div>
 	</main>
 
