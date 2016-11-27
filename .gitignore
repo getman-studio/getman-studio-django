@@ -90,5 +90,6 @@ ENV/
 .ropeproject
 
 staticfiles
+media
 settings_local.py
 db.sqlite3
