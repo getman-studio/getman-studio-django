@@ -24,7 +24,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'ssht+oizc=emgxy$&yn%!@w09@t-4&=%dl3nsn%7t06()d@l1w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'localhost']
 
@@ -77,9 +77,13 @@ WSGI_APPLICATION = 'getman_studio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3r6sngjdcmd8k',
+        'USER': 'xgzqnmysbdjcdl',
+        'PASSWORD': '2u5r1eR6LogsR8gS1QVBKWTmnN',
+        'HOST': 'postgres://xgzqnmysbdjcdl:2u5r1eR6LogsR8gS1QVBKWTmnN@ec2-54-247-170-228.eu-west-1.compute.amazonaws.com:5432/d3r6sngjdcmd8k',
+        'PORT': '5432',
+    },
 }
 
 
@@ -106,13 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'Europe/Kiev'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -124,3 +124,8 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 MEDIA_ROOT=os.path.join(PROJECT_ROOT, 'media')
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

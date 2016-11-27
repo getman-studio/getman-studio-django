@@ -90,3 +90,5 @@ ENV/
 .ropeproject
 
 staticfiles
+settings_local.py
+db.sqlite3
