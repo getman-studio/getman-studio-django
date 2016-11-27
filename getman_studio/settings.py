@@ -26,7 +26,7 @@ SECRET_KEY = 'ssht+oizc=emgxy$&yn%!@w09@t-4&=%dl3nsn%7t06()d@l1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'dev.getmanstudio.com']
+ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'localhost']
 
 
 # Application definition

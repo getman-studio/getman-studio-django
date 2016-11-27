@@ -2,16 +2,9 @@ from django.shortcuts import render
 from models import Category, GalleryItem, Article, WorkshopParallaxItem
 
 def gallery(request):
-    items = {}
     categories = Category.objects.all();
-    print "categories " + str(categories)
-    for category in categories:
-        try:
-            items[category] = GalleryItem.objects.get(category = category)
-        except:
-            items[category] = []
-        print str(category) + str(items)
-    return render(request, 'gallery/gallery.html', {'categories': categories, 'items': items})
+    gitems = GalleryItem.objects.all();
+    return render(request, 'gallery/gallery.html', {'categories': categories, 'items': gitems})
 
 def workshop(request):
     articles = Article.objects.all()
