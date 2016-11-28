@@ -3,9 +3,12 @@
 {% load static %}
 {% block 'content' %}
 	<main>
-		<div class="parallax-container">
-			<div class="parallax"><img src="{{MEDIA_URL}}{{firstParallax.image.url}}"></div>
-		</div>
+		{% if firstParallax %}
+			<div class="parallax-container">
+				<div class="parallax"><img src="{{MEDIA_URL}}{{firstParallax.image.url}}"></div>
+			</div>
+		{% endif %}
+
 		<div class="section">
 			<div class="container row">
 				<div id="workshop_description">
@@ -59,9 +62,11 @@
 			{% endif %}
 		{% endfor %}
 
+		{% if lastParallax %}
 		<div class="parallax-container">
 			<div class="parallax"><img src="{{MEDIA_URL}}{{lastParallax.image.url}}"></div>
 		</div>
+		{% endif %}
 	</main>
 
 {% endblock %}

@@ -10,8 +10,11 @@ def workshop(request):
     articles = Article.objects.all()
     parallaxItems = list(WorkshopParallaxItem.objects.all())
 
-    firstParallax = parallaxItems.pop(0)
-    lastParallax = parallaxItems.pop(-1)
+    firstParallax = None
+    lastParallax = None
+    if (len(parallaxItems) >= 2):
+        firstParallax = parallaxItems.pop(0)
+        lastParallax = parallaxItems.pop(-1)
 
     particles = {}
     for i, article in enumerate(articles):
