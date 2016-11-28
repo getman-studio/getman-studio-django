@@ -7,8 +7,10 @@ class CategoryAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {"text_id": ("name",)}
 
+class GalleryItemAdmin(admin.ModelAdmin):
+    list_display = ('description', 'category')
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(GalleryItem)
+admin.site.register(GalleryItem, GalleryItemAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(WorkshopParallaxItem)

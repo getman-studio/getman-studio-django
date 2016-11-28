@@ -24,7 +24,7 @@ class GalleryItem(models.Model):
         verbose_name_plural = u'Елементи галереї'
 
     def __unicode__(self):
-        return self.category.name + ": " + self.description
+        return self.description
 
 class Article(models.Model):
     id = models.AutoField(primary_key=True)
