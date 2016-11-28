@@ -2,8 +2,8 @@
 from django.db import models
 
 class Category(models.Model):
-    text_id = models.CharField(max_length=15)
     name = models.CharField(max_length=15)
+    text_id = models.SlugField(max_length=15)
 
     class Meta:
         verbose_name = u'Категорія'
@@ -28,8 +28,8 @@ class GalleryItem(models.Model):
 
 class Article(models.Model):
     id = models.AutoField(primary_key=True)
-    text_id = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
+    text_id = models.SlugField(max_length=255)
     date = models.DateField(auto_now=False, auto_now_add=False)
     description = models.TextField()
     image1 = models.ImageField(upload_to="workshop/")
