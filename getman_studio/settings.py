@@ -76,8 +76,16 @@ WSGI_APPLICATION = 'getman_studio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {}
-DATABASES['default'] =  dj_database_url.config()
+DATABASES {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'getmanstudio',
+        'USER': 'david',
+        'PASSWORD': 'getmanstudiopassword',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
