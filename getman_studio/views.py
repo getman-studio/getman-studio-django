@@ -12,20 +12,20 @@ def workshop(request):
 
     firstParallax = None
     lastParallax = None
-    if (len(parallaxItems) >= 2):
+    if (len(parallaxItems) >= 1):
         firstParallax = parallaxItems.pop(0)
+    if (len(parallaxItems) >= 2):
         lastParallax = parallaxItems.pop(-1)
 
-    particles = {}
-    for i, article in enumerate(articles):
-        i = i + 1
+    x = 0
+    for article in articles:
+        i = x + 1
         if i % 2 == 0 and i < articles.count() and len(parallaxItems) > i / 2:
-            particles[article] = parallaxItems[i / 2]
-        else:
-            particles[article] = None
+            article.parallax = parallaxItems[i / 2]
+        x += 1
 
-    print str(particles)
-    return render(request, 'workshop/workshop.html', { 'firstParallax': firstParallax, 'lastParallax': lastParallax, 'particles': particles })
+    print str(articles)
+    return render(request, 'workshop/workshop.html', { 'firstParallax': firstParallax, 'lastParallax': lastParallax, 'articles': articles })
 
 def contacts(request):
     return render(request, 'contacts/contacts.html')

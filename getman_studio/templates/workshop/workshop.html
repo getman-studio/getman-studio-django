@@ -33,10 +33,10 @@
 			</div>
 		</div>
 
-		{% for article, parallax in particles.items %}
+		{% for article in articles %}
 			<div class="section">
 				<div class="row container">
-					<div id="springTrees" class="content_item">
+					<div id="{{ article.text_id }}" class="content_item">
 						<div class="title">
 							<span class="title_name">{{ article.name }}</span>
 							<span class="title_date">{{ article.date|date:"d.m.Y" }}</span>
@@ -57,7 +57,7 @@
 			</div>
 			{% if parallax %}
 				<div class="parallax-container">
-					<div class="parallax"><img src="{{MEDIA_URL}}{{parallax.image.url}}"></div>
+					<div class="parallax"><img src="{{MEDIA_URL}}{{article.parallax.image.url}}"></div>
 				</div>
 			{% endif %}
 		{% endfor %}
