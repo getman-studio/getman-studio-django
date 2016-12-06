@@ -20,10 +20,13 @@ class GalleryItem(models.Model):
     description = models.CharField(max_length=255)
     link = models.CharField(max_length=255, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    position = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = u'Елемент галереї'
         verbose_name_plural = u'Елементи галереї'
+        ordering = ('position', )
+
 
     def __unicode__(self):
         return self.description
