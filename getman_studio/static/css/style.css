@@ -45,6 +45,10 @@ i.icon-black {
   height: 44px;
 }
 
+.category_holder {
+  min-height: 300px;
+}
+
 .parallax-container {
   height: 100px;
 }
