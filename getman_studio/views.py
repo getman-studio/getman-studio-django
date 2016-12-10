@@ -2,7 +2,7 @@ from django.shortcuts import render
 from models import Category, GalleryItem, Article, WorkshopParallaxItem
 
 def gallery(request):
-    categories = Category.objects.all();
+    categories = Category.objects.filter(active=True);
     gitems = GalleryItem.objects.all();
     return render(request, 'gallery/gallery.html', {'categories': categories, 'items': gitems})
 

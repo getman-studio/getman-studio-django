@@ -5,6 +5,7 @@ class Category(models.Model):
     name = models.CharField(max_length=15)
     text_id = models.SlugField(max_length=15)
     position = models.IntegerField(default=0)
+    active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = u'Категорія'
