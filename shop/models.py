@@ -16,3 +16,17 @@ class Category(models.Model):
 
     def __unicode__(self):
        return self.name
+
+class Item(models.Model):
+    name = models.CharField(max_length=35)
+    description = models.TextField()
+    image = models.ImageField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = u'Штука'
+        verbose_name_plural = u'Штуки'
+
+    def __unicode__(self):
+        return self.name
