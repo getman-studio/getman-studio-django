@@ -17,6 +17,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib import admin
 from getman_studio import views
+from shop import urls
 from django.conf.urls.static import static
 import settings
 
@@ -25,7 +26,9 @@ urlpatterns = [
     url(r'^$', views.gallery, name='gallery'),
     url(r'^workshop/', views.workshop, name='workshop'),
     url(r'^contacts/', views.contacts, name='contacts'),
+    url(r'^shop/', views.shop, name='shop'),
 ]
 
+urlpatterns += urls.urlpatterns
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
