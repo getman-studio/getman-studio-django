@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^$', views.gallery, name='gallery'),
     url(r'^workshop/', views.workshop, name='workshop'),
     url(r'^contacts/', views.contacts, name='contacts'),
-    url(r'^shop/', views.shop, name='shop'),
 ]
 
 urlpatterns += urls.urlpatterns

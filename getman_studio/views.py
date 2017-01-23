@@ -29,6 +29,3 @@ def workshop(request):
 
 def contacts(request):
     return render(request, 'contacts/contacts.html')
-
-def shop(request):
-    return render(request, 'shop/shop.html')

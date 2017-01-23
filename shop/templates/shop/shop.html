@@ -5,28 +5,25 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m9 l10">
-      <div id="introduction" class="section scrollspy">
+
+      {% for category in categories %}
+      <div id="{{ category.text_id }}" class="section scrollspy">
 
       </div>
-
-      <div id="structure" class="section scrollspy">
-
-      </div>
-
-      <div id="initialization" class="section scrollspy">
-        
-      </div>
+      {% endfor %}
     </div>
     <div class="col hide-on-small-only m3 l2">
       <ul class="section table-of-contents">
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#structure">Structure</a></li>
-        <li><a href="#initialization">Intialization</a></li>
+        {% for category in categories %}
+        <li><a href="#{{ category.text_id }}">{{ category.name }}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>
 </div>
+{% endblock %}
 
+{% block 'scripts' %}
 <script type="text/javascript">
   $(document).ready(function(){
      $('.scrollspy').scrollSpy();
