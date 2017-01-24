@@ -23,7 +23,7 @@
                 <p>{{ item.description }}</p>
               </div>
               <div class="card-action">
-                <a href="#" class="blue-text text-darken-4">Придбати за ₴{{item.price}}</a>
+                <a onclick="addItem({{ item.id }}, '{{ item.name }}', {{ item.price }}, 1)" href="javascript:void(0);" class="blue-text text-darken-4">Придбати за ₴{{item.price}}</a>
               </div>
             </div>
           </div>
@@ -49,4 +49,6 @@
      $('.scrollspy').scrollSpy();
    });
 </script>
+
+<script type="text/javascript" src="{% static 'js/shop.js' %}"></script>
 {% endblock %}
