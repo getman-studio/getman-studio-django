@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="{% static 'css/style.css' %} " type="text/css" rel="stylesheet" media="screen,projection" />
+
+    {% block 'links' %}
+    {% endblock %}
 </head>
 
 <body>
@@ -22,12 +25,15 @@
                 <li><a class="black-text" href="/workshop/">новини майстерні</a></li>
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
                 <li><a class="black-text" href="/shop/">крамничка</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons cart">shopping_cart</i></a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
                 <li><a class="black-text" href="/">галерея</a></li>
                 <li><a class="black-text" href="/workshop/">майстерня</a></li>
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
+                <li><a class="black-text" href="/shop/">крамничка</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons cart">shopping_cart</i></a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-black">menu</i></a>
         </div>
@@ -66,7 +72,8 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
-
+    <script type="text/javascript" src="{% static 'js/shop.js' %}"></script>
+    
     {% block 'scripts' %}
     {% endblock %}
 </body>

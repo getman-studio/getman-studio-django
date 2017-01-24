@@ -3,6 +3,7 @@ $(document).ready(function() {
   if (localStorage["cart"]) {
     cart = JSON.parse(localStorage["cart"]);
   }
+  validateCart();
 });
 
 function addItem(id, name, price, quantity = 1) {
@@ -15,6 +16,7 @@ function addItem(id, name, price, quantity = 1) {
   }
 
   localStorage["cart"] = JSON.stringify(cart);
+  validateCart();
   return false;
 }
 
@@ -30,6 +32,7 @@ function removeItem(id, quantity = 1) {
   }
 
   localStorage["cart"] = JSON.stringify(cart);
+  validateCart();
   return false;
 }
 
@@ -39,14 +42,24 @@ function removeAllItems(id) {
   delete cart[index]
 
   localStorage["cart"] = JSON.stringify(cart);
-
+  validateCart();
   return false;
 }
 
 function clearCart() {
   delete localStorage["cart"];
-
+  validateCart();
   return false;
+}
+
+function validateCart() {
+  var $cart = $(".cart");
+  var cartEmpty = cart.length == 0;
+  if (cartEmpty) {
+    $cart.removeClass("icon-green");
+  } else {
+    $cart.addClass("icon-green");
+  }
 }
 
 function findItem(id) {
