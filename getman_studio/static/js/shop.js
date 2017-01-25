@@ -127,5 +127,6 @@ function fillCart() {
     $('#cart_modal').modal('close');
   }
 
+  $("#cart-input").val(JSON.stringify("cart"));
   return false;
 }
