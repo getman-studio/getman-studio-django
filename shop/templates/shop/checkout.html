@@ -1,0 +1,31 @@
+{% extends '../base.html' %}
+
+{% block 'content' %}
+<div class="row">
+  <h4>Контактні дані</h4>
+  <form id="info" class="col s12" action="/shop/placeorder/" method="post">
+    <div class="row">
+      <div class="col s12">
+        <label for="name">Ім'я</label>
+        <input placeholder="Ім'я" id="name" type="text" class="validate">
+      </div>
+      <div class="col s12">
+        <label for="email">Електронна адреса</label>
+        <input placeholder="Електронна адреса" id="email" type="email" class="validate">
+      </div>
+      <div class="col s12">
+        <label for="phone">Телефон</label>
+        <input placeholder="Телефон" id="phone" type="tel" class="validate">
+      </div>
+      <div class="col s12">
+        <label for="comment">Коментар</label>
+        <textarea id="comment" class="materialize-textarea"></textarea>
+      </div>
+
+      <input id="cart_input" type="hidden" name="cart" value="{{ cart_input }}">
+    </div>
+
+    <a href="javascript:void(0);" onClick="$('#info').submit(); return false;" class="right white-text modal-action modal-close waves-light btn blue">Придбати товари!</a>
+  </form>
+</div>
+{% endblock %}
