@@ -7,6 +7,18 @@ $(document).ready(function() {
   fillCart();
 });
 
+function addItem(id, quantity = 1) {
+  var item = findItem(id);
+  if (item) {
+    item.quantity += quantity;
+  }
+
+  validateCart();
+  fillCart();
+
+  return false;
+}
+
 function addItem(id, name, price, quantity = 1) {
   var item = findItem(id);
   if (!item) {
@@ -23,13 +35,13 @@ function addItem(id, name, price, quantity = 1) {
 }
 
 function removeItem(id, quantity = 1) {
-  var item = find(id);
+  var item = findItem(id);
   if (item) {
     item.quantity -= 1;
 
-    if (item.quantity < 0) {
+    if (item.quantity <= 0) {
       var index = cart.indexOf(item);
-      delete cart[index]
+      cart.splice(index, 1);
     }
   }
 
@@ -61,9 +73,9 @@ function validateCart() {
   var $cart = $(".cart");
   var cartEmpty = cart.length == 0;
   if (cartEmpty) {
-    $cart.removeClass("icon-green");
+    $cart.removeClass("icon-blue");
   } else {
-    $cart.addClass("icon-green");
+    $cart.addClass("icon-blue");
   }
 }
 
@@ -83,8 +95,12 @@ function fillCart() {
     list.append(
       "<tr>" +
         "<td>" + cart[i]["name"] + "</td>" +
-        "<td>" + cart[i]["quantity"]+ "</td>" +
-        "<td>₴" + cart[i]["price"] * cart[i]["quantity"] + "</td>" +
+        "<td>₴" + cart[i]["price"] + "</td>" +
+        "<td>" + cart[i]["quantity"] + "</td>" +
+        "<td>" +
+          "<a href='javascript:void(0);' onclick=addItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>add</i></a>"+
+          "<a href='javascript:void(0);' onclick=removeItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>remove</i></a>"+
+        "</td>" +
       "</tr>");
   }
 
