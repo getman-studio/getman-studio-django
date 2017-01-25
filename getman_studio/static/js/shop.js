@@ -4,6 +4,7 @@ $(document).ready(function() {
     cart = JSON.parse(localStorage["cart"]);
   }
   validateCart();
+  fillCart();
 });
 
 function addItem(id, name, price, quantity = 1) {
@@ -17,6 +18,7 @@ function addItem(id, name, price, quantity = 1) {
 
   localStorage["cart"] = JSON.stringify(cart);
   validateCart();
+  fillCart();
   return false;
 }
 
@@ -33,6 +35,7 @@ function removeItem(id, quantity = 1) {
 
   localStorage["cart"] = JSON.stringify(cart);
   validateCart();
+  fillCart();
   return false;
 }
 
@@ -43,12 +46,14 @@ function removeAllItems(id) {
 
   localStorage["cart"] = JSON.stringify(cart);
   validateCart();
+  fillCart();
   return false;
 }
 
 function clearCart() {
   delete localStorage["cart"];
   validateCart();
+  fillCart();
   return false;
 }
 
@@ -69,4 +74,19 @@ function findItem(id) {
     }
   }
   return undefined;
+}
+
+function fillCart() {
+  var list = $("#cart_list");
+  list.empty();
+  for (var i = 0; i < cart.length; ++i) {
+    list.append(
+      "<tr>" +
+        "<td>" + cart[i]["name"] + "</td>" +
+        "<td>" + cart[i]["quantity"]+ "</td>" +
+        "<td>₴" + cart[i]["price"] * cart[i]["quantity"] + "</td>" +
+      "</tr>");
+  }
+
+  return false;
 }

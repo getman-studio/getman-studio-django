@@ -25,7 +25,7 @@
                 <li><a class="black-text" href="/workshop/">новини майстерні</a></li>
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
                 <li><a class="black-text" href="/shop/">крамничка</a></li>
-                <li><a class="black-text" href="#"><i class="material-icons cart">shopping_cart</i></a></li>
+                <li><a class="black-text" href="#cart_modal"><i class="material-icons cart">shopping_cart</i></a></li>
             </ul>
 
             <ul id="nav-mobile" class="side-nav">
@@ -33,11 +33,34 @@
                 <li><a class="black-text" href="/workshop/">майстерня</a></li>
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
                 <li><a class="black-text" href="/shop/">крамничка</a></li>
-                <li><a class="black-text" href="#"><i class="material-icons cart">shopping_cart</i></a></li>
+                <li><a class="black-text" href="#cart_modal"><i class="material-icons cart">shopping_cart</i></a></li>
             </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-black">menu</i></a>
         </div>
     </nav>
+
+    <!-- Modal Structure -->
+    <div id="cart_modal" class="modal">
+      <div class="modal-content">
+          <h4>Корзинка</h4>
+          <table>
+           <thead>
+             <tr>
+                 <th data-field="name">Назва</th>
+                 <th data-field="quantity">Кількість</th>
+                 <th data-field="price">Ціна</th>
+             </tr>
+           </thead>
+
+           <tbody id="cart_list">
+           </tbody>
+         </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="white-text modal-action modal-close waves-light btn">Придбати</a>
+        <a href="#!" class="green-text modal-action modal-close waves-effect waves-green btn-flat">продовжити покупки</a>
+      </div>
+    </div>
 
     {% block 'content' %}
     {% endblock %}
@@ -73,7 +96,13 @@
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/shop.js' %}"></script>
-    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+      });
+    </script>
+
     {% block 'scripts' %}
     {% endblock %}
 </body>
