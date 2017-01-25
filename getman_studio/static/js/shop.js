@@ -52,9 +52,9 @@ function removeItem(id, quantity = 1) {
 }
 
 function removeAllItems(id) {
-  var item = find(id);
+  var item = findItem(id);
   var index = cart.indexOf(item);
-  delete cart[index]
+  cart.splice(index)
 
   localStorage["cart"] = JSON.stringify(cart);
   validateCart();
@@ -100,6 +100,7 @@ function fillCart() {
         "<td>" +
           "<a href='javascript:void(0);' onclick=addItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>add</i></a>"+
           "<a href='javascript:void(0);' onclick=removeItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>remove</i></a>"+
+          "<a href='javascript:void(0);' onclick=removeAllItems(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>delete</i></a>"+
         "</td>" +
       "</tr>");
   }
