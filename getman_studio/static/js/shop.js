@@ -98,9 +98,9 @@ function fillCart() {
         "<td>₴" + cart[i]["price"] + "</td>" +
         "<td>" + cart[i]["quantity"] + "</td>" +
         "<td>" +
-          "<a href='javascript:void(0);' onclick=addItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>add</i></a>"+
-          "<a href='javascript:void(0);' onclick=removeItem(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>remove</i></a>"+
-          "<a href='javascript:void(0);' onclick=removeAllItems(" + cart[i]["id"] + ") class='black-text waves-effect waves-blue btn-flat'><i class='material-icons'>delete</i></a>"+
+          "<a href='javascript:void(0);' onclick=addItem(" + cart[i]["id"] + ") class='cart-action black-text waves-effect waves-blue btn-flat'><i class='material-icons'>add</i></a>"+
+          "<a href='javascript:void(0);' onclick=removeItem(" + cart[i]["id"] + ") class='cart-action black-text waves-effect waves-blue btn-flat'><i class='material-icons'>remove</i></a>"+
+          "<a href='javascript:void(0);' onclick=removeAllItems(" + cart[i]["id"] + ") class='cart-action black-text waves-effect waves-blue btn-flat'><i class='material-icons icon-red'>delete</i></a>"+
         "</td>" +
       "</tr>");
   }

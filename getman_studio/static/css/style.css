@@ -20,6 +20,10 @@ a:visited {
   color: #0000FF;
 }
 
+table {
+  table-layout: fixed;
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -131,4 +135,9 @@ i.icon-black {
   width: 100%;
 }
 
+.cart-action {
+  padding: 0 1rem;
+}
+
 .material-icons.icon-blue { color: #0000ff; }
+.material-icons.icon-red { color: #cc0000; }
