@@ -91,11 +91,13 @@ function findItem(id) {
 function fillCart() {
   var list = $("#cart_list");
   list.empty();
+
+  var sum = 0;
   for (var i = 0; i < cart.length; ++i) {
     list.append(
       "<tr>" +
         "<td>" + cart[i]["name"] + "</td>" +
-        "<td>₴" + cart[i]["price"] + "</td>" +
+        "<td>₴" + cart[i]["price"].toFixed(2) + "</td>" +
         "<td>" + cart[i]["quantity"] + "</td>" +
         "<td>" +
           "<a href='javascript:void(0);' onclick=addItem(" + cart[i]["id"] + ") class='cart-action black-text waves-effect waves-blue btn-flat'><i class='material-icons'>add</i></a>"+
@@ -103,7 +105,11 @@ function fillCart() {
           "<a href='javascript:void(0);' onclick=removeAllItems(" + cart[i]["id"] + ") class='cart-action black-text waves-effect waves-blue btn-flat'><i class='material-icons icon-red'>delete</i></a>"+
         "</td>" +
       "</tr>");
+
+      sum += cart[i]["price"] * cart[i]["quantity"];
   }
+
+  $(".total").text(sum.toFixed(2));
 
   return false;
 }
