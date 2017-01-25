@@ -139,5 +139,10 @@ i.icon-black {
   padding: 0 1rem;
 }
 
+.cart_full,
+.cart_empty {
+  display: none;
+}
+
 .material-icons.icon-blue { color: #0000ff; }
 .material-icons.icon-red { color: #cc0000; }

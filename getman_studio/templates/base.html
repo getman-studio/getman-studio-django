@@ -41,24 +41,31 @@
 
     <!-- Modal Structure -->
     <div id="cart_modal" class="modal">
-      <div class="modal-content">
-          <h4>Корзинка</h4>
-          <table>
-           <thead>
-             <tr>
-                 <th data-field="name">Назва</th>
-                 <th data-field="price">Ціна</th>
-                 <th data-field="quantity">Кількість</th>
-             </tr>
-           </thead>
+      <div class="cart_full">
+        <div class="modal-content">
+            <h4>Корзинка</h4>
+            <table>
+             <thead>
+               <tr>
+                   <th data-field="name">Назва</th>
+                   <th data-field="price">Ціна</th>
+                   <th data-field="quantity">Кількість</th>
+               </tr>
+             </thead>
 
-           <tbody id="cart_list">
-           </tbody>
-         </table>
+             <tbody id="cart_list">
+             </tbody>
+           </table>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="white-text modal-action modal-close waves-light btn blue">Придбати за ₴<span class="total"></span></a>
+          <a href="#!" class="blue-text modal-action modal-close waves-effect waves-blue btn-flat">продовжити покупки</a>
+        </div>
       </div>
-      <div class="modal-footer">
-        <a href="#!" class="white-text modal-action modal-close waves-light btn blue">Придбати за ₴<span class="total"></span></a>
-        <a href="#!" class="blue-text modal-action modal-close waves-effect waves-blue btn-flat">продовжити покупки</a>
+      <div class="cart_empty">
+        <div class="modal-content">
+          <p>Наразі корзинка пуста. Гайда виправляти!</p>
+        </div>
       </div>
     </div>
 
@@ -96,13 +103,7 @@
     <script src="{% static 'js/materialize.js' %}"></script>
     <script src="{% static 'js/init.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/shop.js' %}"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal').modal();
-      });
-    </script>
-
+  
     {% block 'scripts' %}
     {% endblock %}
 </body>

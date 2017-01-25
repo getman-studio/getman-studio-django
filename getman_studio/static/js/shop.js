@@ -5,6 +5,18 @@ $(document).ready(function() {
   }
   validateCart();
   fillCart();
+
+  $('.modal').modal({
+    ready: function(modal, trigger) {
+      if (cart.length == 0) {
+        $(".cart_empty").show();
+        $(".cart_full").hide();
+      } else {
+        $(".cart_full").show();
+        $(".cart_empty").hide();
+      }
+    },
+  });
 });
 
 function addItem(id, quantity = 1) {
@@ -110,6 +122,10 @@ function fillCart() {
   }
 
   $(".total").text(sum.toFixed(2));
+
+  if (sum == 0) {
+    $('#cart_modal').modal('close');
+  }
 
   return false;
 }
