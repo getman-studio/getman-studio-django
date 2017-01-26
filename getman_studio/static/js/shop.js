@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 });
 
-function addItem(id, quantity = 1) {
+function addItem(id, quantity) {
   var item = findItem(id);
   if (item) {
     item.quantity += quantity;
@@ -31,13 +31,13 @@ function addItem(id, quantity = 1) {
   return false;
 }
 
-function addItem(id, name, price, quantity = 1) {
+function addItem(id, name, price) {
   var item = findItem(id);
   if (!item) {
-    item = {"id": id, "name": name, "price": price, "quantity": quantity};
+    item = {"id": id, "name": name, "price": price, "quantity": 1};
     cart.push(item);
   } else {
-    item.quantity += quantity;
+    item.quantity += 1;
   }
 
   localStorage["cart"] = JSON.stringify(cart);
@@ -46,7 +46,7 @@ function addItem(id, name, price, quantity = 1) {
   return false;
 }
 
-function removeItem(id, quantity = 1) {
+function removeItem(id) {
   var item = findItem(id);
   if (item) {
     item.quantity -= 1;
