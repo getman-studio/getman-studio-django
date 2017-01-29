@@ -69,7 +69,8 @@
       </div>
 
       <form id="cart_form" name="checkout" action="/shop/checkout/" method="post" style="display: none">
-        <input id="cart_input" type="hidden" name="cart">
+        <input id="cart_input" type="hidden" name="cart" />
+        <input id="total" type="hidden" name="total" />
         {% csrf_token %}
       </form>
     </div>

@@ -121,12 +121,14 @@ function fillCart() {
       sum += cart[i]["price"] * cart[i]["quantity"];
   }
 
-  $(".total").text(sum.toFixed(2));
+  var total = sum.toFixed(2);
+  $(".total").text(total);
 
   if (sum == 0) {
     $('#cart_modal').modal('close');
   }
 
   $("#cart_input").val(JSON.stringify(cart));
+  $("#total").val(total);
   return false;
 }

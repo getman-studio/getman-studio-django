@@ -7,22 +7,25 @@
     <div class="row">
       <div class="col s12">
         <label for="name">Ім'я</label>
-        <input placeholder="Ім'я" id="name" type="text" class="validate">
+        <input placeholder="Ім'я" id="name" name="name" type="text" class="validate">
       </div>
       <div class="col s12">
         <label for="email">Електронна адреса</label>
-        <input placeholder="Електронна адреса" id="email" type="email" class="validate">
+        <input placeholder="Електронна адреса" id="email" name="email" type="email" class="validate">
       </div>
       <div class="col s12">
         <label for="phone">Телефон</label>
-        <input placeholder="Телефон" id="phone" type="tel" class="validate">
+        <input placeholder="Телефон" id="phone" type="tel" name="phone" class="validate">
       </div>
       <div class="col s12">
         <label for="comment">Коментар</label>
-        <textarea id="comment" class="materialize-textarea"></textarea>
+        <textarea id="comment" class="materialize-textarea" name="comment"></textarea>
       </div>
 
       <input id="cart_input" type="hidden" name="cart" value="{{ cart_input }}">
+      <input id="total" type="hidden" name="total" value="{{ total }}">
+
+      {% csrf_token %}
     </div>
 
     <a href="javascript:void(0);" onClick="$('#info').submit(); return false;" class="right white-text modal-action modal-close waves-light btn blue">Придбати товари!</a>
