@@ -93,3 +93,4 @@ staticfiles
 media
 settings_local.py
 db.sqlite3
+bin/
