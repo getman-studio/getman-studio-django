@@ -23,9 +23,10 @@ import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.gallery, name='gallery'),
-    url(r'^workshop/', views.workshop, name='workshop'),
-    url(r'^contacts/', views.contacts, name='contacts'),
+    url(r'^$', views.gallery),
+    url(r'^workshop/$', views.workshop),
+    url(r'^workshop/(?P<page>\d+)/$', views.workshop),
+    url(r'^contacts/', views.contacts),
 ]
 
 urlpatterns += urls.urlpatterns

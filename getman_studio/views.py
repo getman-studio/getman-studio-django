@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 from models import Category, GalleryItem, Article, WorkshopParallaxItem
 
 def gallery(request):
@@ -6,9 +7,12 @@ def gallery(request):
     gitems = GalleryItem.objects.all();
     return render(request, 'gallery/gallery.html', {'categories': categories, 'items': gitems})
 
-def workshop(request):
-    articles = Article.objects.all()
+def workshop(request, page="1"):
+    print "page: " + page
+    allArticles = Article.objects.all()
+    paginator = Paginator(allArticles, 3)
     parallaxItems = list(WorkshopParallaxItem.objects.all())
+    articles = paginator.page(page).object_list
 
     firstParallax = None
     lastParallax = None
@@ -25,7 +29,8 @@ def workshop(request):
         x += 1
 
     print str(articles)
-    return render(request, 'workshop/workshop.html', { 'firstParallax': firstParallax, 'lastParallax': lastParallax, 'articles': articles })
+    return render(request, 'workshop/workshop.html', { 'firstParallax': firstParallax, 'lastParallax': lastParallax,
+        'articles': articles, 'currentpage': int(page), 'pages': range(1, paginator.num_pages + 1) })
 
 def contacts(request):
     return render(request, 'contacts/contacts.html')

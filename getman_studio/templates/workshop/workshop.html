@@ -1,5 +1,6 @@
 {% extends '../base.html' %}
 
+
 {% load static %}
 {% block 'content' %}
 	<main>
@@ -49,11 +50,21 @@
 						<p class="right author">{{ article.author }}</p>
 					</div>
 				</div>
+				{% if not forloop.last %}
 				<div class="row right-align">
 					<div class="col s12 line">
 						<img src="{% static 'img/line.png' %}" />
 					</div>
 				</div>
+				{% else %}
+				<div class="row center container">
+					<ul class="pagination">
+						{% for page in pages %}
+						<li class="{% if page == currentpage %}active{% else %}waves-effect{% endif %}"><a href="/workshop/{{ page }}/">{{ page }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endif %}
 			</div>
 			{% if parallax %}
 				<div class="parallax-container">
