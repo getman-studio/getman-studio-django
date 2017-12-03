@@ -14,6 +14,9 @@ class Category(models.Model):
         verbose_name_plural = u'Категорії'
         ordering = ('position',)
 
+    def __str__(self):
+        return self.name
+
     def __unicode__(self):
         return self.name
 
@@ -28,6 +31,9 @@ class Item(models.Model):
     class Meta:
         verbose_name = u'Штука'
         verbose_name_plural = u'Штуки'
+
+    def __str__(self):
+        return self.name
 
     def __unicode__(self):
         return self.name
