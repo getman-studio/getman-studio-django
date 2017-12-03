@@ -12,10 +12,11 @@ class Category(models.Model):
     class Meta:
         verbose_name = u'Категорія'
         verbose_name_plural = u'Категорії'
-        ordering = ('position', )
+        ordering = ('position',)
 
     def __unicode__(self):
-       return self.name
+        return self.name
+
 
 class Item(models.Model):
     name = models.CharField(max_length=35)

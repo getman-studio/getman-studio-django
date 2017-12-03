@@ -19,7 +19,8 @@ from django.contrib import admin
 from getman_studio import views
 from shop import urls
 from django.conf.urls.static import static
-import settings
+from .settings import MEDIA_URL
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,4 +32,4 @@ urlpatterns = [
 
 urlpatterns += urls.urlpatterns
 urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

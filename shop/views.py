@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.core.mail import send_mail
-from models import Category, Item
+from .models import Category, Item
 import json
+
 
 def shop(request):
     categories = Category.objects.all()
@@ -10,10 +11,12 @@ def shop(request):
         category.items = Item.objects.filter(category__id=category.id)
     return render(request, 'shop/shop.html', {'categories': categories})
 
+
 def checkout(request):
-    cartInput = request.POST.get("cart")
+    cart_input = request.POST.get("cart")
     total = request.POST.get("total")
-    return render(request, 'shop/checkout.html', {'cart_input': cartInput, 'total': total})
+    return render(request, 'shop/checkout.html', {'cart_input': cart_input, 'total': total})
+
 
 def placeorder(request):
     name = request.POST.get("name")
@@ -38,13 +41,14 @@ def placeorder(request):
     Сумма: %s
     """ % (name, phone, email, comment, buyed, total)
 
-    success = True
     try:
-        send_mail(subject, body, "info@getmanstudio.com", ["getmanstudio@gmail.com", "a@mailinator.com"], fail_silently=False)
-    except:
-        success = False
+        send_mail(subject, body, "info@getmanstudio.com", ["getmanstudio@gmail.com", "a@mailinator.com"],
+                  fail_silently=False)
+        success = True
+    finally:
+        pass
 
     categories = Category.objects.all()
     for category in categories:
         category.items = Item.objects.filter(category__id=category.id)
-    return render(request, 'shop/shop.html', { "checkout": True, "success": success, "categories": categories })
+    return render(request, 'shop/shop.html', {"checkout": True, "success": success, "categories": categories})

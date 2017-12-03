@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(max_length=15)
     text_id = models.SlugField(max_length=15)
@@ -10,10 +11,10 @@ class Category(models.Model):
     class Meta:
         verbose_name = u'Категорія'
         verbose_name_plural = u'Категорії'
-        ordering = ('position', )
+        ordering = ('position',)
 
     def __unicode__(self):
-       return self.name
+        return self.name
 
 
 class GalleryItem(models.Model):
@@ -26,11 +27,11 @@ class GalleryItem(models.Model):
     class Meta:
         verbose_name = u'Елемент галереї'
         verbose_name_plural = u'Елементи галереї'
-        ordering = ('position', )
-
+        ordering = ('position',)
 
     def __unicode__(self):
         return self.description
+
 
 class Article(models.Model):
     id = models.AutoField(primary_key=True)
@@ -45,7 +46,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = u'Новина'
         verbose_name_plural = u'Новини'
-        ordering = ('-date', )
+        ordering = ('-date',)
 
     def __unicode__(self):
         return self.name

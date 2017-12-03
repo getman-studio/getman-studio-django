@@ -145,6 +145,6 @@ MEDIA_ROOT=os.path.join(PROJECT_ROOT, 'media')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 try:
-    from settings_local import *
+    from .settings_local import *
 except ImportError:
     pass
