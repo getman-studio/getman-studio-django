@@ -9,7 +9,7 @@
       <div class="col s12 m9 l10">
         <div class="row">
           {% for category in categories %}
-          <div id="{{ category.text_id }}" class="section scrollspy">
+          <div id="{{ category.text_id }}" class="section col m12 scrollspy">
             <h4>{{ category.name }}</h4>
             {% for item in category.items %}
             <div class="col l6">
