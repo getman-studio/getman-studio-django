@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Category, GalleryItem, Article, WorkshopParallaxItem
+from .models import Category, GalleryItem, Article, WorkshopParallaxItem
 
 def gallery(request):
     categories = Category.objects.filter(active=True);
@@ -24,7 +24,6 @@ def workshop(request):
             article.parallax = parallaxItems[i / 2]
         x += 1
 
-    print str(articles)
     return render(request, 'workshop/workshop.html', { 'firstParallax': firstParallax, 'lastParallax': lastParallax, 'articles': articles })
 
 def contacts(request):

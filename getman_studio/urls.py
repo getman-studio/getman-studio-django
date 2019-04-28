@@ -16,15 +16,16 @@ Including another URLconf
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib import admin
-from getman_studio import views
 from django.conf.urls.static import static
-import settings
+
+from .views import gallery, workshop, contacts
+from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.gallery, name='gallery'),
-    url(r'^workshop/', views.workshop, name='workshop'),
-    url(r'^contacts/', views.contacts, name='contacts'),
+    url(r'^$', gallery, name='gallery'),
+    url(r'^workshop/', workshop, name='workshop'),
+    url(r'^contacts/', contacts, name='contacts'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
