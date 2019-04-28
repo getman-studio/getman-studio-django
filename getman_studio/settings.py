@@ -25,10 +25,22 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'ssht+oizc=emgxy$&yn%!@w09@t-4&=%dl3nsn%7t06()d@l1w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 
-ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost']
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost']
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
 # Application definition
 
@@ -71,21 +83,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'getman_studio.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'getmanstudio',
-        'USER': 'david',
-        'PASSWORD': 'getmanstudiopassword',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
