@@ -5,6 +5,7 @@ services:
     image: postgres
   web:
     build: .
+    image: getmanstudio:latest
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
@@ -16,6 +17,7 @@ services:
       - db
   migration:
     build: .
+    image: getmanstudio:latest
     command: python manage.py migrate --noinput
     depends_on:
       - db

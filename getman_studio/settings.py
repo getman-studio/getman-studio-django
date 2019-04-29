@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost']
+    ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost', u'0.0.0.0']
 
 DATABASES = {
     'default': {
