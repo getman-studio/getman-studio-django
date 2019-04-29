@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    },
+    "python.pythonPath": "/Users/david/Virtualenvs/getman_studio-5TtKEjrT/bin/python",
+    "python.linting.pylintPath": "/Users/david/Virtualenvs/getman_studio-5TtKEjrT/bin/python"
+}
