@@ -147,8 +147,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-MEDIA_ROOT = '/media'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

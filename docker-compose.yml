@@ -6,23 +6,12 @@ services:
   web:
     build: .
     image: getmanstudio:latest
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
-      - .:/media
+      - .:/mediafiles
+      - .:/staticfiles
     ports:
       - "8000:8000"
     depends_on:
-      - static
-      - migration
       - db
-  migration:
-    build: .
-    image: getmanstudio:latest
-    command: python manage.py migrate --noinput
-    depends_on:
-      - db
-  static:
-    build: .
-    image: getmanstudio:latest
-    command: python manage.py collectstatic
