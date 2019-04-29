@@ -27,10 +27,7 @@ SECRET_KEY = 'ssht+oizc=emgxy$&yn%!@w09@t-4&=%dl3nsn%7t06()d@l1w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 
-if DEBUG:
-    ALLOWED_HOSTS = ["*"]
-else:
-    ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost', u'0.0.0.0']
+ALLOWED_HOSTS = ["*"]
 
 DATABASES = {
     'default': {
