@@ -17,7 +17,6 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -25,10 +24,22 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'ssht+oizc=emgxy$&yn%!@w09@t-4&=%dl3nsn%7t06()d@l1w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
 
-ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost']
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
+else:
+    ALLOWED_HOSTS = [u'dev.getmanstudio.com', u'www.getmanstudio.com', u'getmanstudio.com', u'localhost', u'127.0.0.1', u'0.0.0.0', u'159.89.5.167', u'172.18.0.1']
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
 # Application definition
 
@@ -136,8 +147,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-MEDIA_ROOT=os.path.join(PROJECT_ROOT, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/

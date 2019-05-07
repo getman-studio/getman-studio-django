@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Category, GalleryItem, Article, WorkshopParallaxItem
 
-
 def gallery(request):
     categories = Category.objects.filter(active=True);
     gitems = GalleryItem.objects.all();

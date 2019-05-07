@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    image: getmanstudio:latest
+    command: bash -c "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn getman_studio.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - code:/code
+    depends_on:
+      - db
+  nginx:
+    build: ./nginx
+    volumes:
+      - code:/code
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+
+volumes:
+  code:

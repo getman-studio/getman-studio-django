@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Category, GalleryItem, Article, WorkshopParallaxItem
 
-
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"text_id": ("name",)}
 

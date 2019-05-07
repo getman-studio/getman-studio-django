@@ -22,12 +22,15 @@ from django.conf.urls.static import static
 from .settings import MEDIA_URL
 from .settings import MEDIA_ROOT
 
+from .views import gallery, workshop, contacts
+from . import settings
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.gallery),
-    url(r'^workshop/$', views.workshop),
+    url(r'^$', gallery, name='gallery'),
+    url(r'^workshop/', workshop, name='workshop'),
     url(r'^workshop/(?P<page>\d+)/$', views.workshop),
-    url(r'^contacts/', views.contacts),
+    url(r'^contacts/', contacts, name='contacts'),
 ]
 
 urlpatterns += urls.urlpatterns
