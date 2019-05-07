@@ -98,3 +98,4 @@ settings_local.py
 db.sqlite3
 bin/
 .vscode/
+.env
