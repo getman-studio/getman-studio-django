@@ -17,13 +17,15 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
+from getman_studio import views
+from . import settings
 
 from .views import gallery, workshop, contacts
-from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', gallery, name='gallery'),
+    url(r'^article/(.+)/$', views.workshop_item),
     url(r'^workshop/', workshop, name='workshop'),
     url(r'^contacts/', contacts, name='contacts'),
 ]
