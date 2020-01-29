@@ -130,3 +130,7 @@ i.icon-black {
 .content_item img {
   width: 100%;
 }
+
+.breadcrumbs {
+  margin-top: 48px;
+}

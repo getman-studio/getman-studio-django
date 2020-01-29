@@ -30,7 +30,10 @@ def workshop(request):
 
 
 def workshop_item(request, article_id):
-    return render(request, 'workshop/workshop_item.html')
+    article = Article.objects.get(text_id = article_id)
+    return render(request, 'workshop/workshop_item.html', {
+        'article': article
+    })
 
 def contacts(request):
     return render(request, 'contacts/contacts.html')

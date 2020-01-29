@@ -6,14 +6,18 @@
 
 <div class="container">
 
-    <div class="row"></div>
+    <div class="row breadcrumbs">
+        <div class="col s8"><a href="/workshop">новини майстерні</a> > {{ article.name }}</div>
+        <img class="col s4" src="{% static 'img/line.png' %}" />
+    </div>
 
     <div class="row">
-        <img class="col s6" src="https://www.getmanstudio.com/media/workshop/for-web.jpg">
+        <h4 class="col s8">{{ article.name }}</h4>
+    </div>
 
-        <div class="col s6">
-            Нова картина "Захоплюючий погляд" готова, та радує свого власника Gert Van de Velde😊, за яким тепер весь час спостерігають жіночі очі😉👁😅 дякуємо за довіру та натхнення!! Художник: Zorina Getman , трохи мазнув 🖌😆 Валентин Гетьман Формат 130х130, полотно, олія (живопис намальований по ескізам замовника) New painting "Breathtaking gaze" is already..thanks Gert Van de Velde for trust, inspiration and 👍foto!! Now Women’s eyes look on by you all the time...😉👁😅
-        </div>
+    <div class="row">
+        <img class="col s6" src="{{MEDIA_URL}}{{ article.image1.url }}">
+        <p class="col s6 flow-text">{{ article.description|safe }}</p>
     </div>
 </div>
 {% endblock %}
