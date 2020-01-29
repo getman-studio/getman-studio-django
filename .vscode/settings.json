@@ -8,6 +8,12 @@
         "**/*.pyc": true,
         "**/__pycache__": true
     },
-    "python.pythonPath": "/Users/david/Virtualenvs/getman_studio-5TtKEjrT/bin/python",
-    "python.linting.pylintPath": "/Users/david/Virtualenvs/getman_studio-5TtKEjrT/bin/python"
+    "python.pythonPath": "/home/ariedov/.local/share/virtualenvs/getman-studio-django-gIRtRqem/bin/python",
+    "python.linting.pylintPath": "/Users/david/Virtualenvs/getman_studio-5TtKEjrT/bin/python",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }

@@ -38,7 +38,7 @@
 				<div class="row container">
 					<div id="{{ article.text_id }}" class="content_item">
 						<div class="title">
-							<span class="title_name"><a class="black-text" href="#{{ article.text_id }}">{{ article.name }}</a></span>
+							<span class="title_name"><a class="black-text" href="/article/{{ article.text_id }}">{{ article.name }}</a></span>
 							<span class="title_date">{{ article.date|date:"d.m.Y" }}</span>
 						</div>
 						<p class="value">{{ article.description|safe }}</p>
@@ -68,5 +68,4 @@
 		</div>
 		{% endif %}
 	</main>
-
 {% endblock %}

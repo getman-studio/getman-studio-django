@@ -4,15 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint-django = "*"
 pylint = "*"
 
 [packages]
 dj-database-url = "==0.4.1"
-django = "==2.2"
 gunicorn = "==19.6.0"
 psycopg2 = "==2.8.2"
 whitenoise = "==3.2.2"
 Pillow = "==6.0.0"
+Django = "==2.2"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"

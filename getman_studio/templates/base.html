@@ -8,9 +8,11 @@
 
     {% load static %}
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="{% static 'css/style.css' %} " type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    {% block 'links' %}
+    {% endblock %}
 </head>
 
 <body>
@@ -23,12 +25,12 @@
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
             </ul>
 
-            <ul id="nav-mobile" class="side-nav">
+            <ul id="nav-mobile" class="sidenav">
                 <li><a class="black-text" href="/">галерея</a></li>
                 <li><a class="black-text" href="/workshop/">майстерня</a></li>
                 <li><a class="black-text" href="/contacts/">контакти</a></li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons icon-black">menu</i></a>
+            <a href="#" data-target="nav-mobile" class="sidenav"><i class="material-icons icon-black">menu</i></a>
         </div>
     </nav>
 
@@ -57,13 +59,13 @@
         </div>
         <div class="footer-copyright">
             <div class="container black-text">
-                © Художня майстерня "Гетьман" 2008–2017 Копіювання матеріалів дозволяється лише з посиланням на джерело
+                © Художня майстерня "Гетьман" 2008–2020 Копіювання матеріалів дозволяється лише з посиланням на джерело.
             </div>
         </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="{% static 'js/materialize.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{% static 'js/init.js' %}"></script>
 
     <script>
