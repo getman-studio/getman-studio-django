@@ -7,7 +7,7 @@
 <div class="container">
 
     <div class="row breadcrumbs">
-        <div class="col s8"><a href="/workshop">новини майстерні</a> > {{ article.name }}</div>
+        <div class="col s8"><a class="crumb" href="/workshop">новини майстерні</a> > {{ article.name }}</div>
         <img class="col s4" src="{% static 'img/line.png' %}" />
     </div>
 
@@ -17,7 +17,12 @@
 
     <div class="row">
         <img class="col s6" src="{{MEDIA_URL}}{{ article.image1.url }}">
-        <p class="col s6 flow-text">{{ article.description|safe }}</p>
+        <div class="col s6">
+            <div class="right"><i>{{ article.author }}</i> <i>{{ article.date|date:"d.m.Y" }}</i></div>
+            <p class="flow-text">
+                {{ article.description|safe }}
+            </p>
+        </div>
     </div>
 </div>
 {% endblock %}

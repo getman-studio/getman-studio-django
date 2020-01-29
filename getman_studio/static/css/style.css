@@ -134,3 +134,7 @@ i.icon-black {
 .breadcrumbs {
   margin-top: 48px;
 }
+
+a.crumb {
+  color: #7f8688;
+}
